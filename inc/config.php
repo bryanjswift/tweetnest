@@ -7,16 +7,16 @@
 
 	$config = array(
 		// REQUIRED VALUES ------------------------------------
-		'twitter_screenname' => '', // Your Twitter screen name
-		'timezone'           => '', // Choose one of these: http://php.net/manual/en/timezones.php
-		'path'               => '', // Where's your twitter installation on your domain? No end slash, please.
+		'twitter_screenname' => getenv('TWITTER_SCREENNAME'), // Your Twitter screen name
+		'timezone'           => getenv('TIMEZONE'), // Choose one of these: http://php.net/manual/en/timezones.php
+		'path'               => '/', // Where's your twitter installation on your domain? No end slash, please.
 		// Database values
 		'db'                 => array(
-			'hostname'       => '', // The hostname of your database server. Usually 'localhost'
-			'username'       => '', // The username to log in to your database
-			'password'       => '', // The password to log in to your database
-			'database'       => '', // The database name
-			'table_prefix'   => ''  // The prefix to table names in the database
+			'hostname'       => getenv('DB_HOSTNAME'), // The hostname of your database server. Usually 'localhost'
+			'username'       => getenv('DB_USERNAME'), // The username to log in to your database
+			'password'       => getenv('DB_PASSWORD'), // The password to log in to your database
+			'database'       => getenv('DB_DATABASE'), // The database name
+			'table_prefix'   => getenv('DB_TABLE_PREFIX')  // The prefix to table names in the database
 		),
 		
 		// OPTIONAL -------------------------------------------
