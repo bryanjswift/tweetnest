@@ -78,6 +78,8 @@
 		}
 		
 		echo l("User ID: " . $uid . "\n");
+    ob_flush();
+    flush();
 		
 		// Find total number of tweets
 		$total = totalTweets($p);
@@ -88,6 +90,8 @@
 		if($sinceID){
 			echo l("Newest tweet I've got: <strong>" . $sinceID . "</strong>\n");
 		}
+    ob_flush();
+    flush();
 		
 		$page = 1;
 		
@@ -113,6 +117,8 @@
 					if(!IS64BIT && $i == 0 && $maxID == $tweet->id_str){ unset($data[0]); continue; }
 					// List tweet
 					echo l("<li>" . $tweet->id_str . " " . $tweet->created_at . "</li>\n");
+          ob_flush();
+          flush();
 					// Create tweet element and add to list
 					$tweets[] = $twitterApi->transformTweet($tweet);
 					// Determine new max_id
@@ -157,6 +163,8 @@
 		
 		// Checking personal favorites -- scanning all
 		echo l("\n<strong>Syncing favourites...</strong>\n");
+    ob_flush();
+    flush();
 		// Resetting these
 		$favs  = array(); $maxID = 0; $sinceID = 0; $page = 1;
 		do {
@@ -181,6 +189,8 @@
 				echo l("</ul>");
 			}
 			echo l("<strong>" . count($favs) . "</strong> favorite own tweets so far\n");
+      ob_flush();
+      flush();
 			$page++;
 		} while(!empty($data));
 		
